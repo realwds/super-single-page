@@ -1,6 +1,10 @@
 module.exports = {
+  base: '/super-single-page/',
   title: 'super single page',
   description: '静态html单页面，极简，极炫 ~',
+  head: [
+    ['link', { rel: 'icon', href: '/hero.png' }]
+  ],
   themeConfig: {
   	// logo: '/hero.png',
     nav: [
@@ -43,12 +47,11 @@ module.exports = {
       }
     ],
     lastUpdated: 'Last Updated', // string | boolean
-	// 默认值是 true 。设置为 false 来禁用所有页面的 下一篇 链接
+	  // 默认值是 true 。设置为 false 来禁用所有页面的 下一篇 链接
     nextLinks: false,
     // 默认值是 true 。设置为 false 来禁用所有页面的 上一篇 链接
     prevLinks: false,
     //启用页面滚动效果。
-    smoothScroll: true,
-    base: '/super-single-page/'
+    smoothScroll: true
   }
 }
