@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta name="author" content="realwds">
+    <meta name="generator" content="KodCloud">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    
+    <meta name="description" content="DINSOT旗下产品，搜罗各种实用网站导航">
+    <meta name="keywords" content="DINSOT,DINSOT导航">
+    
+    <title>DINSOT导航-旗下产品导航，搜罗各种实用网站</title>
+    <link rel="shortcut icon" type="image/png" href="https://cdn.jsdelivr.net/gh/realwds/cdn/img/20201229113242.ico">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+    <style type="text/css">
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: Microsoft Yahei, "微软雅黑", "Helvetica Neue", Helvetica, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+}
+a {
+    text-decoration: none;
+}
+a:focus {  /* firefox */
+    outline: none;  
+} 
+img {border: none;}
+.hidden {display: none;}
+
+/* 页面头部 */
+.header {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* 头部动画区域 */
+#victor-container {
+    background-image: linear-gradient(to right, #8BC34A , #4CAF50);
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    min-width: 500px;
+}
+#victor-output {
+    width: 100%;
+    height: 100%;
+}
+
+/* 欢迎语区域 */
+.welcome {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    -webkit-transform: translateY(-50%);
+       -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+         -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+    text-align: center;
+}
+
+/* 页面标题图 */
+.web-title {
+    max-width: 90%;
+    -webkit-animation: fadeIn 1s linear;
+    animation: fadeIn 1s linear;
+}
+/*.web-title:hover {*/
+/*    -webkit-animation:bounce 1s .1s ease both;*/
+/*    -moz-animation:bounce 1s .1s ease both;*/
+/*}*/
+
+/* 向下滚动提示 */
+.scroll-down-tips {
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+       -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+         -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+    bottom: 20px;
+    color: #f0f0f0;
+    cursor: pointer;
+}
+.scroll-down-tips>.fa {
+    color: #f0f0f0;
+    -webkit-animation: upDown 2s infinite;
+    animation: upDown 2s infinite;
+}
+
+/* 页面主容器 */
+.container{
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* 栅格系统 */
+.mk-item-box {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.mk-item-box:before,.mk-item-box:after {
+    content: " ";
+    display: table;
+}
+.mk-item-box:after {
+    clear: both;
+}
+.mk-item {
+    width: 25%;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+}
+
+/* 响应式优化 */
+@media screen and (max-width: 1150px) {
+    .container {
+        width: 950px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .container {
+        width: 750px;
+    }
+    .mk-item {
+        width: 50%;
+    }
+}
+@media screen and (max-width: 800px) {
+    .container {
+        width: 100%;
+        padding-left:30px;
+        padding-right: 30px;
+    }
+    
+    .welcome>p {
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .container {
+        padding-left:15px;
+        padding-right: 15px;
+    }
+    .mk-item {
+        width: 100%;
+    }
+}
+
+/* 分类大块 */
+.section {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+/* 子标题 */
+.mk-sub-title {
+    text-align: center;
+    font-weight: normal;
+    font-size: 26px;
+    margin: 20px 0 13px 0;
+}
+.mk-sub-title>span {
+    font-family: Segoe UI Light,Microsoft YaHei,Arial,Helvetica,sans-serif;
+    margin-right: 10px;
+}
+.mk-title-describe {
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+
+/* 彩色块，样式来自 alloyteam(http://www.alloyteam.com/) */
+.mk-color-item {
+    font-family: microsoft yahei;
+    background-color: #70c3ff;
+    padding: 20px 10px;
+    text-align: center;
+    border-radius: 4px;
+    color: #fff;
+    margin-bottom: 25px;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+.mk-color-item:hover {
+    transform: translateY(-6px);
+    -webkit-transform: translateY(-6px);
+    -moz-transform: translateY(-6px);
+    box-shadow: 0 26px 40px -24px rgba(0, 36, 100, .5);
+    -webkit-box-shadow: 0 26px 40px -24px rgba(0, 36, 100, .5);
+    -moz-box-shadow: 0 26px 40px -24px rgba(0, 36, 100, .5)
+}
+
+.mk-color-item.color1 {
+    background-color: #70c3ff!important;
+}
+.mk-color-item.color2 {
+    background-color: #fd6a7f!important;
+}
+.mk-color-item.color3 {
+    background-color: #7f8ea0!important;
+}
+.mk-color-item.color4 {
+    background-color: #89d04f!important;
+}
+.mk-color-item.color5 {
+    background-color: #998899!important;
+}
+.mk-color-item.color6 {
+    background-color: #888069!important;
+}
+.mk-color-item.color6 {
+    background-color: #888069!important;
+}
+
+.mk-color-item>p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+}
+
+.mk-color-item>.item-logo {
+    height: 60px;
+    overflow: hidden;
+    display: inline-block
+}
+.mk-color-item>.item-logo>img {
+    height: 100%
+}
+
+.mk-color-item>.item-logo>.fa {
+    font-size: 60px; 
+    line-height: 60px;
+}
+
+.mk-color-item>h3 {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+
+.mk-color-item>.light {
+    cursor: pointer;
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: -webkit-linear-gradient(0deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.5),hsla(0,0%,100%,0));
+    transform: skewx(-25deg);
+    -o-transform: skewx(-25deg);
+    -moz-transform: skewx(-25deg);
+    -webkit-transform: skewx(-25deg);
+}
+.mk-color-item:hover>.light {
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    left: 100%
+}
+
+/* 页脚区域 */
+.footer {
+    text-align: center;
+    background: #26282c;
+    padding: 30px 0;
+    font-size: 14px;
+    color: #d8d8d8;
+}
+.footer a{
+    color: #FF9800;
+}
+
+/* 返回顶部按钮。样式来自水墨寒博客 https://smohan.net/ */
+.mk-uptop {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    bottom: 20px;
+    right: -60px;
+    background-color: rgba(67,69,70,.75);
+    z-index: 50;
+    -webkit-transition: all .36s ease;
+    transition: all .36s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+.mk-uptop:before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-top: 1px solid hsla(0,0%,100%,.75);
+    border-right: 1px solid hsla(0,0%,100%,.75);
+    position: absolute;
+    top: 45%;
+    left: 55%;
+    -webkit-transform: rotate(-45deg) translate(-50%,-50%);
+    transform: rotate(-45deg) translate(-50%,-50%);
+}
+.mk-uptop:hover {
+    background-color: rgb(67,69,70);
+    background-color: rgba(67,69,70,1);
+}
+.mk-uptop.show {
+    right: 12px;
+    -webkit-transform: scale(1) rotate(-1turn) translate(0);
+    transform: scale(1) rotate(-1turn) translate(0);
+}
+
+
+/* 上下移动动画效果 */
+@-webkit-keyframes upDown {0% {-webkit-transform: translate3d(0, 0, 0); opacity: 1;}100% {-webkit-transform: translate3d(0, 8px, 0);opacity: 0;}}
+@keyframes upDown {0% {transform: translate3d(0, 0, 0);opacity: 1;}100% {transform: translate3d(0, 8px, 0);opacity: 0;}}
+
+/* 掉落的动画效果 */
+@-webkit-keyframes dropIn {0% {opacity: 0;-webkit-transform: translate3d(0, -100px, 0)}100% {opacity: 0.8;-webkit-transform: translate3d(0, 0, 0)}}
+@keyframes dropIn {0% {opacity: 0;transform: translate3d(0, -100px, 0)}100% {opacity: 0.8;transform: translate3d(0, 0, 0)}}
+
+/* 逐渐出现的动画效果 */
+@-webkit-keyframes fadeIn {from {opacity: 0;-webkit-transform: scale(.8) translateY(20px)}to {opacity: 1;-webkit-transform: scale(1) translateY(0)}}
+@keyframes fadeIn {from {opacity: 0;transform: scale(.8) translateY(20px)}to {opacity: 1;transform: scale(1) translateY(0)}}
+
+/*弹动效果*/
+@-webkit-keyframes bounce {0% {-webkit-transform:scale(1)}10%, 20% {-webkit-transform:scale(0.8) rotate(-2deg)}30%, 50%, 70%, 90% {-webkit-transform:scale(1.1) rotate(2deg)}40%, 60%, 80% {-webkit-transform:scale(1.1) rotate(-2deg)}100% {-webkit-transform:scale(1) rotate(0)}}
+
+/* 拉伸弹动效果 */
+@keyframes rubberBand {0% {transform: scaleX(1)} 30% {transform: scale3d(1.25, .75, 1)}40% {transform: scale3d(.75, 1.25, 1)}50% {transform: scale3d(1.15, .85, 1)}65% {transform: scale3d(.95, 1.05, 1)}75% {transform: scale3d(1.05, .95, 1)}to {transform: scaleX(1)}}
+    </style>
+
+</head>
+<body>
+
+
+<header class="header">
+    <!-- 动画展示区域 -->
+    <div id="victor-container"><div id="victor-output"></div></div>
+    
+    <div class="welcome">
+        <img class="web-title" src="https://cdn.jsdelivr.net/gh/realwds/cdn/img/20201229113109.png" alt="DINSOT导航" />
+    </div>
+    
+    <!--向下滚动提示-->
+    <a class="scroll-down-tips" href="#product" onclick="$('html, body').animate({scrollTop: $('.header').height()}, '500');return false;">
+        <i class="fa fa-angle-double-down" aria-hidden="true"></i>
+        向下滚动
+    </a>
+</header>
+
+<div class="container">
+
+<section class="section">
+
+<a name="product"></a>
+<h3 class="mk-sub-title">
+    <span>Product</span>
+    <span>/</span>
+    原创作品
+</h3>
+
+<p class="mk-title-describe">没错，这些都是我的原创作品</p>
+
+<div class="mk-item-box">
+
+<div class="mk-item">
+    <a href="https://github.com/realwds" target="_blank">
+        <article class="mk-color-item color1">
+            <div class="item-logo">
+                <i class="fa fa-github" aria-hidden="true"></i>
+            </div>
+            <h3>GitHub</h3>
+            <p>https://github.com/realwds</p>
+            <i class="light"></i>
+        </article>
+    </a>
+</div>
+
+<div class="mk-item">
+    <a href="https://gitlab.com/realwds" target="_blank">
+        <article class="mk-color-item color2">
+            <div class="item-logo">
+                <i class="fa fa-github" aria-hidden="true"></i>
+            </div>
+            <h3>GitLab</h3>
+            <p>https://gitlab.com/realwds</p>
+            <i class="light"></i>
+        </article>
+    </a>
+</div>
+
+<div class="mk-item">
+    <a href="https://gitee.com/realwds" target="_blank">
+        <article class="mk-color-item color3">
+            <div class="item-logo">
+                <i class="fa fa-github" aria-hidden="true"></i>
+            </div>
+            <h3>Gitee</h3>
+            <p>https://gitee.com/realwds</p>
+            <i class="light"></i>
+        </article>
+    </a>
+</div>
+
+<div class="mk-item">
+    <a href="https://disnot.com" target="_blank">
+        <article class="mk-color-item color4">
+            <div class="item-logo">
+                <i class="fa fa-globe" aria-hidden="true"></i>
+            </div>
+            <h3>DISNOT</h3>
+            <p>https://disnot.com</p>
+            <i class="light"></i>
+        </article>
+    </a>
+</div>
+
+<div class="mk-item">
+    <a href="https://a.disnot.com" target="_blank">
+        <article class="mk-color-item color6">
+            <div class="item-logo">
+                <i class="fa fa-globe" aria-hidden="true"></i>
+            </div>
+            <h3>DISNOT bloga</h3>
+            <p>https://a.disnot.com</p>
+            <i class="light"></i>
+        </article>
+    </a>
+</div>
+
+<div class="mk-item">
+    <a href="https://b.disnot.com" target="_blank">
+        <article class="mk-color-item color5">
+            <div class="item-logo">
+                <i class="fa fa-globe" aria-hidden="true"></i>
+            </div>
+            <h3>DISNOT blogb</h3>
+            <p>https://b.disnot.com</p>
+            <i class="light"></i>
+        </article>
+    </a>
+</div>
+
+<div class="mk-item">
+    <a href="https://video.disnot.com" target="_blank">
+        <article class="mk-color-item color1">
+            <div class="item-logo">
+                <i class="fa fa-globe" aria-hidden="true"></i>
+            </div>
+            <h3>DISNOT video</h3>
+            <p>https://video.disnot.com</p>
+            <i class="light"></i>
+        </article>
+    </a>
+</div>
+
+<div class="mk-item">
+    <a href="https://status.disnot.com" target="_blank">
+        <article class="mk-color-item color2">
+            <div class="item-logo">
+                <i class="fa fa-globe" aria-hidden="true"></i>
+            </div>
+            <h3>DISNOT status</h3>
+            <p>https://status.disnot.com</p>
+            <i class="light"></i>
+        </article>
+    </a>
+</div>
+
+<div class="mk-item">
+    <a href="https://wx.disnot.com" target="_blank">
+        <article class="mk-color-item color3">
+            <div class="item-logo">
+                <i class="fa fa-globe" aria-hidden="true"></i>
+            </div>
+            <h3>DISNOT wx</h3>
+            <p>https://wx.disnot.com</p>
+            <i class="light"></i>
+        </article>
+    </a>
+</div>
+
+<div class="mk-item">
+    <a href="https://git.disnot.com" target="_blank">
+        <article class="mk-color-item color4">
+            <div class="item-logo">
+                <i class="fa fa-globe" aria-hidden="true"></i>
+            </div>
+            <h3>DISNOT git</h3>
+            <p>https://git.disnot.com</p>
+            <i class="light"></i>
+        </article>
+    </a>
+</div>
+
+<div class="mk-item">
+    <a href="https://vercel.disnot.com" target="_blank">
+        <article class="mk-color-item color5">
+            <div class="item-logo">
+                <i class="fa fa-globe" aria-hidden="true"></i>
+            </div>
+            <h3>DISNOT vercel</h3>
+            <p>https://vercel.disnot.com/</p>
+            <i class="light"></i>
+        </article>
+    </a>
+</div>
+
+<div class="mk-item">
+    <a href="https://gridea.disnot.com" target="_blank">
+        <article class="mk-color-item color6">
+            <div class="item-logo">
+                <i class="fa fa-globe" aria-hidden="true"></i>
+            </div>
+            <h3>DISNOT gridea</h3>
+            <p>https://gridea.disnot.com</p>
+            <i class="light"></i>
+        </article>
+    </a>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+</section>
+
+</div>
+
+<footer class="footer">
+    <div class="web-record">
+        © 2020 <a href="https://disnot.com">DISNOT</a> All rights reserved  皖ICP备17024568号
+    </div>
+</footer>
+
+<!-- 返回顶部 -->
+<div class="mk-uptop" title="点击返回顶部"></div>
+
+<!-- jq -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+<script>
+$(function() {
+    // 页面加载完毕后固定页头高度，防止在某些自动隐藏工具栏的移动浏览器上出现页面抖动现象
+    $(".header").height($(window).height());
+    
+	// 监听滚动变化
+    $(window).scroll(function() {
+        if($(window).scrollTop() < 300) {
+            $(".mk-uptop").removeClass("show");
+        } else {
+            $(".mk-uptop").addClass("show");
+        }
+    });
+    
+    // 返回顶部
+    $(".mk-uptop").click(function(){
+		$("html, body").animate({scrollTop:0}, "normal"); 
+		return false; 
+	});
+
+    console.info('Version 2.0, Designed by mkblog.cn.');
+});
+
+</script>
+
+</body>
+</html>
