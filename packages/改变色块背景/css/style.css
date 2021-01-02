@@ -1,0 +1,94 @@
+.color-picker-container {
+  display: inline-block;
+  background: #5d5f60 none repeat scroll 0% 0%;
+  border-radius: 4px;
+  border: 2px solid #f8fafb;
+}
+.color-picker-container .picker-container .canvas-container {
+  margin: 20px;
+  position: relative;
+  float: left;
+  width: 200px;
+  display: inline-block;
+  background: #5D5F60;
+}
+.color-picker-container .picker-container .canvas-container.active {
+  display: block;
+}
+.color-picker-container .picker-container .canvas-container canvas {
+  cursor: crosshair;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #E8E8E8;
+  background: #E6D3D3;
+}
+.color-picker-container .picker-container .canvas-container .pointer {
+  width: 15px;
+  height: 15px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.1);
+}
+.color-picker-container .picker-container .canvas-container input {
+  margin-top: 10px;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  background: #353738;
+  border: 0;
+  color: #fff;
+}
+.color-picker-container .picker-container .slider-container {
+  width: 15px;
+  float: right;
+  position: relative;
+  margin: 15px;
+}
+.color-picker-container .picker-container .slider-container .slider {
+  width: 15px;
+  height: 249px;
+  background: #000;
+}
+.color-picker-container .picker-container .slider-container .pointer {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 10px;
+  border-color: transparent transparent transparent #007bff;
+  position: absolute;
+  left: -8px;
+}
+.color-picker-container .palletes-container {
+  float: right;
+  width: 275px;
+}
+.color-picker-container .palletes-container .palette {
+  width: 35px;
+  height: 35px;
+  float: right;
+  border-radius: 4px;
+  margin: 5px;
+  box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+}
+.color-picker-container .palletes-container .palette.active {
+  box-shadow: 0 0 0 3px #3F3F40;
+}
+.color-picker-container .palletes-container .palette.add {
+  border: 2px dashed #bababa;
+  box-shadow: inherit;
+  position: relative;
+}
+.color-picker-container .palletes-container .palette.add:after {
+  content: '+';
+  font-size: 24px;
+  color: #bababa;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;
+  line-height: 30px;
+}
