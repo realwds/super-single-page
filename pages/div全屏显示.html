@@ -1,219 +1,289 @@
-﻿<!doctype html>
+﻿<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>模仿F11全屏预览-jq22.com</title>
-<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
-<style>
-html {
-	font:100%/1.3 Verdana,Helvetica,Arial,sans-serif;
-}
-body {
-	font:70%/1.3 Verdana,Helvetica,Arial,sans-serif;
-}
-h1 {
-	font:bold 2em Arial,sans-serif;
-}
-h2 {
-	font:bold 1.5em Arial,sans-serif;
-}
-h3 {
-	font:bold 1.25em Arial,sans-serif;
-}
-h4 {
-	font:bold 1.1em Arial,sans-serif;
-}
-/* Default resetting */
-			
-html,body,form,fieldset,legend,dt,dd {
-	margin:0;
-	padding:0;
-}
-h1,h2,h3,h4,h5,h6,p,ul,ol,dl {
-	margin:0 0 1em;
-	padding:0;
-}
-h1,h2,h3,h4,h5,h6 {
-	margin-bottom:0.5em;
-}
-h2 {
-	margin-top:20px;
-}
-pre {
-	font-size:1.5em;
-}
-li,dd {
-	margin-left:1.5em;
-}
-img {
-	border:none;
-	vertical-align:middle;
-}
-/* Basic element styles */
-			
-a {
-	color:#000;
-}
-a:hover {
-	text-decoration:underline;
-}
-html {
-	color:#000;
-	background:yellowgreen;
-	min-height:100%;
-}
-body {
-	margin-bottom:30px;
-}
-ul {
-	margin:10px 0;
-}
-/* Structure */
-			
-.container {
-	width:560px;
-	min-height:600px;
-	background:#fff;
-	border:1px solid #ccc;
-	border-top:none;
-	margin:20px auto;
-	padding:20px;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
-	-moz-box-shadow:1px 1px 10px #000;
-	-webkit-box-shadow:1px 1px 5px #000;
-	box-shadow:1px 1px 10px #000;
-}
-@media screen and (max-width:320px) {
-	#container {
-	width:280px;
-	padding:10px;
-}
-}video {
-	display:block;
-	margin-bottom:10px;
-}
-/* Fullscreen */
-			
-html:-moz-full-screen {
-	background:red;
-}
-html:-webkit-full-screen {
-	background:red;
-}
-html:-ms-fullscreen {
-	background:red;
-}
-body:-ms-fullscreen {
-	overflow:auto;
-	/* fix for IE11 scrollbar */
-}
-html:fullscreen {
-	background:red;
-}
-</style>
-</head>
-<body>
-<div class="container">
-    <section class="main-content">
+  <head>
+    <meta charset="utf-8" />
+    <title>模仿F11全屏预览-jq22.com</title>
+    <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <style>
+      html {
+        font: 100%/1.3 Verdana, Helvetica, Arial, sans-serif;
+      }
 
+      body {
+        font: 70%/1.3 Verdana, Helvetica, Arial, sans-serif;
+      }
+
+      h1 {
+        font: bold 2em Arial, sans-serif;
+      }
+
+      h2 {
+        font: bold 1.5em Arial, sans-serif;
+      }
+
+      h3 {
+        font: bold 1.25em Arial, sans-serif;
+      }
+
+      h4 {
+        font: bold 1.1em Arial, sans-serif;
+      }
+
+      /* Default resetting */
+
+      html,
+      body,
+      form,
+      fieldset,
+      legend,
+      dt,
+      dd {
+        margin: 0;
+        padding: 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      ul,
+      ol,
+      dl {
+        margin: 0 0 1em;
+        padding: 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-bottom: 0.5em;
+      }
+
+      h2 {
+        margin-top: 20px;
+      }
+
+      pre {
+        font-size: 1.5em;
+      }
+
+      li,
+      dd {
+        margin-left: 1.5em;
+      }
+
+      img {
+        border: none;
+        vertical-align: middle;
+      }
+
+      /* Basic element styles */
+
+      a {
+        color: #000;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      html {
+        color: #000;
+        background: yellowgreen;
+        min-height: 100%;
+      }
+
+      body {
+        margin-bottom: 30px;
+      }
+
+      ul {
+        margin: 10px 0;
+      }
+
+      /* Structure */
+
+      .container {
+        width: 560px;
+        min-height: 600px;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-top: none;
+        margin: 20px auto;
+        padding: 20px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        -moz-box-shadow: 1px 1px 10px #000;
+        -webkit-box-shadow: 1px 1px 5px #000;
+        box-shadow: 1px 1px 10px #000;
+      }
+
+      @media screen and (max-width: 320px) {
+        #container {
+          width: 280px;
+          padding: 10px;
+        }
+      }
+
+      video {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      /* Fullscreen */
+
+      html:-moz-full-screen {
+        background: red;
+      }
+
+      html:-webkit-full-screen {
+        background: red;
+      }
+
+      html:-ms-fullscreen {
+        background: red;
+      }
+
+      body:-ms-fullscreen {
+        overflow: auto;
+        /* fix for IE11 scrollbar */
+      }
+
+      html:fullscreen {
+        background: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <section class="main-content">
         <p>
-            <button id="view-fullscreen">html全屏</button>
-            <button id="cancel-fullscreen">html退出全屏</button>
-            <button id="div-fullscreen">div全屏</button>
-            </p><div id="divdiv" style="width: 100px;height: 100px;background: red;color: #FFFFFF;">
-                123456789
-            </div>
+          <button id="view-fullscreen">html全屏</button>
+          <button id="cancel-fullscreen">html退出全屏</button>
+          <button id="div-fullscreen">div全屏</button>
+        </p>
+        <div
+          id="divdiv"
+          style="width: 100px; height: 100px; background: red; color: #ffffff"
+        >
+          123456789
+        </div>
         <p></p>
         <script>
-            document.addEventListener("keydown", function(evt) {
-                console.log("keydown. You pressed the " + evt.keyCode + " key")
-            }, false);
+          document.addEventListener(
+            'keydown',
+            function (evt) {
+              console.log('keydown. You pressed the ' + evt.keyCode + ' key')
+            },
+            false
+          )
         </script>
 
         <video id="mario-video" controls="" width="320">
-				<source src="http://www.jq22.com/demo/vidbacking201707310057/assets/Rallye.3gp">
-			</video>
+          <source
+            src="http://www.jq22.com/demo/vidbacking201707310057/assets/Rallye.3gp"
+          />
+        </video>
 
         <button id="video-fullscreen">View fullscreen video</button>
+      </section>
+    </div>
 
-    </section>
+    <script>
+      //html全屏
+      ;(function () {
+        var viewFullScreen = document.getElementById('view-fullscreen')
+        if (viewFullScreen) {
+          viewFullScreen.addEventListener(
+            'click',
+            function () {
+              var docElm = document.documentElement
+              if (docElm.requestFullscreen) {
+                docElm.requestFullscreen()
+              } else if (docElm.msRequestFullscreen) {
+                docElm = document.body //overwrite the element (for IE)
+                docElm.msRequestFullscreen()
+              } else if (docElm.mozRequestFullScreen) {
+                docElm.mozRequestFullScreen()
+              } else if (docElm.webkitRequestFullScreen) {
+                docElm.webkitRequestFullScreen()
+              }
+            },
+            false
+          )
+        }
 
-</div>
+        var cancelFullScreen = document.getElementById('cancel-fullscreen')
+        if (cancelFullScreen) {
+          cancelFullScreen.addEventListener(
+            'click',
+            function () {
+              if (document.exitFullscreen) {
+                document.exitFullscreen()
+              } else if (document.msExitFullscreen) {
+                document.msExitFullscreen()
+              } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen()
+              } else if (document.webkitCancelFullScreen) {
+                document.webkitCancelFullScreen()
+              }
+            },
+            false
+          )
+        }
+        //div全屏
+        var ddiv = document.getElementById('divdiv')
+        var viewFullScreen = document.getElementById('div-fullscreen')
+        if (ddiv && viewFullScreen) {
+          viewFullScreen.addEventListener(
+            'click',
+            function () {
+              var docElm = document.documentElement
+              if (ddiv.requestFullscreen) {
+                ddiv.requestFullscreen()
+              } else if (ddiv.msRequestFullscreen) {
+                ddiv = document.getElementById('divdiv') //overwrite the element (for IE)
+                ddiv.msRequestFullscreen()
+              } else if (docElm.mozRequestFullScreen) {
+                ddiv.mozRequestFullScreen()
+              } else if (docElm.webkitRequestFullScreen) {
+                ddiv.webkitRequestFullScreen()
+              }
+            },
+            false
+          )
+        }
+        //视频全屏
 
-<script>
-//html全屏
-(function() {
-    var viewFullScreen = document.getElementById("view-fullscreen");
-    if (viewFullScreen) {
-        viewFullScreen.addEventListener("click", function() {
-            var docElm = document.documentElement;
-            if (docElm.requestFullscreen) {
-                docElm.requestFullscreen();
-            } else if (docElm.msRequestFullscreen) {
-                docElm = document.body; //overwrite the element (for IE)
-                docElm.msRequestFullscreen();
-            } else if (docElm.mozRequestFullScreen) {
-                docElm.mozRequestFullScreen();
-            } else if (docElm.webkitRequestFullScreen) {
-                docElm.webkitRequestFullScreen();
-            }
-        }, false);
-    }
+        var marioVideo = document.getElementById('mario-video')
+        videoFullscreen = document.getElementById('video-fullscreen')
 
-    var cancelFullScreen = document.getElementById("cancel-fullscreen");
-    if (cancelFullScreen) {
-        cancelFullScreen.addEventListener("click", function() {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if (document.msExitFullscreen) {
-                document.msExitFullscreen();
-            } else if (document.mozCancelFullScreen) {
-                document.mozCancelFullScreen();
-            } else if (document.webkitCancelFullScreen) {
-                document.webkitCancelFullScreen();
-            }
-        }, false);
-    }
-    //div全屏
-    var ddiv = document.getElementById("divdiv")
-    var viewFullScreen = document.getElementById("div-fullscreen");
-    if (ddiv && viewFullScreen) {
-        viewFullScreen.addEventListener("click", function() {
-            var docElm = document.documentElement;
-            if (ddiv.requestFullscreen) {
-                ddiv.requestFullscreen();
-            } else if (ddiv.msRequestFullscreen) {
-                ddiv = document.getElementById("divdiv"); //overwrite the element (for IE)
-                ddiv.msRequestFullscreen();
-            } else if (docElm.mozRequestFullScreen) {
-                ddiv.mozRequestFullScreen();
-            } else if (docElm.webkitRequestFullScreen) {
-                ddiv.webkitRequestFullScreen();
-            }
-        }, false);
-    }
-    //视频全屏
-
-    var marioVideo = document.getElementById("mario-video")
-    videoFullscreen = document.getElementById("video-fullscreen");
-
-    if (marioVideo && videoFullscreen) {
-        videoFullscreen.addEventListener("click", function(evt) {
-            if (marioVideo.requestFullscreen) {
-                marioVideo.requestFullscreen();
-            } else if (marioVideo.msRequestFullscreen) {
-                marioVideo.msRequestFullscreen();
-            } else if (marioVideo.mozRequestFullScreen) {
-                marioVideo.mozRequestFullScreen();
-            } else if (marioVideo.webkitRequestFullScreen) {
-                marioVideo.webkitRequestFullScreen();
-            }
-        }, false);
-    }
-})();
-</script>
-
-</body>
+        if (marioVideo && videoFullscreen) {
+          videoFullscreen.addEventListener(
+            'click',
+            function (evt) {
+              if (marioVideo.requestFullscreen) {
+                marioVideo.requestFullscreen()
+              } else if (marioVideo.msRequestFullscreen) {
+                marioVideo.msRequestFullscreen()
+              } else if (marioVideo.mozRequestFullScreen) {
+                marioVideo.mozRequestFullScreen()
+              } else if (marioVideo.webkitRequestFullScreen) {
+                marioVideo.webkitRequestFullScreen()
+              }
+            },
+            false
+          )
+        }
+      })()
+    </script>
+  </body>
 </html>

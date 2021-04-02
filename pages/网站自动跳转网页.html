@@ -1,47 +1,91 @@
+<!DOCTYPE html>
 <html>
-<head>
-<tITle>网站自动跳转网页（新代码）</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0">
-<table border=0 cellpadding=0 cellspacing=0 width="100%" height="100%">
-<tr> 
-<form name=loading>
-<td align=center> 
-<p>
-<p><strong><font face="黑体" size="6"><strike>www.baidu.com</strike>这个域名即将暂停使用</font></strong></p>
-<p>　</p>
-<p><strong><font size="6" color="#73BF00" face="黑体">网站新地址：</font><font size="6" color="#FF0000" face="黑体">disnot.com</font><font size="6" color="#73BF00" face="黑体"> 
-记得收藏哦！</font></strong></p>
-<p><strong><font size="+1" color="#73BF00">       
-</font></strong></p>
-<p> 
-<input type=text name=chart size=46 style="font-family:Arial; 
-font-weight:bolder; color:gray;
-background-color:white; padding:0px; border-style:none;">
-<br>
-<input type=text name=percent size=46 style="font-family:Arial; 
-color:gray; text-align:center; 
-border-width:medium; border-style:none;">
-<script>var bar = 0 
-var line = "||" 
-var amount ="||" 
-count() 
-function count(){ 
-bar= bar+2 
-amount =amount + line 
-document.loading.chart.value=amount 
-document.loading.percent.value=bar+"%" 
-if (bar<99) 
-{setTimeout("count()",80);} 
-else 
-{window.location = "http://disnot.com";} 
-}
-</script>
-</p>
-</td>
-</form>
-</tr>
-</table>
-</body>
+  <head>
+    <title>网站自动跳转网页（新代码）</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+
+  <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0">
+    <table
+      border="0"
+      cellpadding="0"
+      cellspacing="0"
+      width="100%"
+      height="100%"
+    >
+      <tr>
+        <form name="loading">
+          <td align="center">
+            <p></p>
+            <p>
+              <strong>
+                <font face="黑体" size="6"
+                  ><strike>www.baidu.com</strike>这个域名即将暂停使用</font
+                >
+              </strong>
+            </p>
+            <p>　</p>
+            <p>
+              <strong>
+                <font size="6" color="#73BF00" face="黑体">网站新地址：</font>
+                <font size="6" color="#FF0000" face="黑体">disnot.com</font>
+                <font size="6" color="#73BF00" face="黑体"> 记得收藏哦！</font>
+              </strong>
+            </p>
+            <p>
+              <strong>
+                <font size="+1" color="#73BF00"> </font>
+              </strong>
+            </p>
+            <p>
+              <input
+                type="text"
+                name="chart"
+                size="46"
+                style="
+                  font-family: Arial;
+                  font-weight: bolder;
+                  color: gray;
+                  background-color: white;
+                  padding: 0px;
+                  border-style: none;
+                "
+              />
+              <br />
+              <input
+                type="text"
+                name="percent"
+                size="46"
+                style="
+                  font-family: Arial;
+                  color: gray;
+                  text-align: center;
+                  border-width: medium;
+                  border-style: none;
+                "
+              />
+              <script>
+                var bar = 0
+                var line = '||'
+                var amount = '||'
+                count()
+
+                function count() {
+                  bar = bar + 2
+                  amount = amount + line
+                  document.loading.chart.value = amount
+                  document.loading.percent.value = bar + '%'
+                  if (bar < 99) {
+                    setTimeout('count()', 80)
+                  } else {
+                    window.location = 'http://disnot.com'
+                  }
+                }
+              </script>
+            </p>
+          </td>
+        </form>
+      </tr>
+    </table>
+  </body>
 </html>
