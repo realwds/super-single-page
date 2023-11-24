@@ -1,6 +1,6 @@
 # super-single-page
-静态html单页面，极简，极炫~
 
+静态html单页面，极简，极炫~
 
 ## pages
 
@@ -19,7 +19,6 @@
 | 11  |[照片展示](https://github.com/realwds/super-single-page/blob/gh-pages/pages/照片展示.html)|[Live Demo](https://realwds.github.io/super-single-page/pages/照片展示.html)|
 | 12  |[div全屏显示](https://github.com/realwds/super-single-page/blob/gh-pages/pages/div全屏显示.html)|[Live Demo](https://realwds.github.io/super-single-page/pages/div全屏显示.html)|
 | 13  |[阿里云盘公告页](https://github.com/realwds/super-single-page/blob/gh-pages/pages/阿里云盘公告页.html)|[Live Demo](https://realwds.github.io/super-single-page/pages/阿里云盘公告页.html)|
-
 
 ## packages
 

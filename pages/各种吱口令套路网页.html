@@ -1,69 +1,68 @@
-<!DOCTYPE html>    
-<html lang="en">    
-<head>    
-    <meta charset="UTF-8">          
-    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
-    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
-    <title>点击复制支付宝</title>
-<style>
-	body,html{
-		height: 100%;
-		padding: 0;
-		margin: 0;
-	}
-	.container{
-		width: 100%;
-		height: 100%;
-	}
-</style>
-</head>    
-<body id="clip_button" onClick="copyNum()" data-toggle="tooltip" data-placement="top" title="已复制,赶紧分享给朋友吧" >    
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+	<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+	<title>点击复制支付宝</title>
+	<style>
+		body,
+		html {
+			height: 100%;
+			padding: 0;
+			margin: 0;
+		}
 
+		.container {
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
 
-<h1>狂戳屏幕</h1>
+<body id="clip_button" onClick="copyNum()" data-toggle="tooltip" data-placement="top" title="已复制,赶紧分享给朋友吧">
+	<h1>狂戳屏幕</h1>
+	<textarea type="text" readonly="" id="clip_num"
+		style="width:1px;height:1px;position:absolute;top:-10px;left:-10px">复制这条信息v1nB0t80Uh后打开支付宝，领取收钱码，使用收钱码收钱，提现免费，语音播报，店面新顾客扫码付款还能赚赏金!</textarea>
 
+	<script>
+		// 思路：要想复制到剪贴板，必须先选中这段文字。
+		function copyNum() {
+			var NumClip = document.getElementById("clip_num");
+			var NValue = NumClip.value;
+			var valueLength = NValue.length;
+			selectText(NumClip, 0, valueLength);
+			if (document.execCommand('copy', false, null)) {
+				document.execCommand('copy', false, null)// 执行浏览器复制命令
+				console.log("已复制,赶紧分享给朋友吧");
+			} else {
+				console.log("不兼容");
+			}
+		}
+		// input自带的select()方法在苹果端无法进行选择，所以需要自己去写一个类似的方法
+		// 选择文本。createTextRange(setSelectionRange)是input方法
+		function selectText(textbox, startIndex, stopIndex) {
+			if (textbox.createTextRange) {//ie
+				var range = textbox.createTextRange();
+				range.collapse(true);
+				range.moveStart('character', startIndex);//起始光标
+				range.moveEnd('character', stopIndex - startIndex);//结束光标
+				range.select();//不兼容苹果
+			} else {//firefox/chrome
+				textbox.setSelectionRange(startIndex, stopIndex);
+				textbox.focus();
+			}
+		}
+		/*兼容性补充：
+				移动端：
+				安卓手机：微信（chrome）和几个手机浏览器都可以用。 
+				苹果手机：微信里面和sarafi浏览器里也都可以，  
+			PC端:sarafi版本必须在10.2以上，其他浏览器可以.
+				兼容性测试网站：https://www.caniuse.com/
+		 */
+	</script>
+</body>
 
-
- <textarea  type="text" readonly="" id="clip_num" style="width:1px;height:1px;position:absolute;top:-10px;left:-10px">复制这条信息v1nB0t80Uh后打开支付宝，领取收钱码，使用收钱码收钱，提现免费，语音播报，店面新顾客扫码付款还能赚赏金!</textarea>
-
-
-<script>
-    // 思路：要想复制到剪贴板，必须先选中这段文字。
-    function copyNum(){
-    	var NumClip=document.getElementById("clip_num");
-    	var NValue=NumClip.value;
-    	var valueLength = NValue.length;
-    	selectText(NumClip, 0, valueLength);
-	if(document.execCommand('copy', false, null)){
-	    document.execCommand('copy', false, null)// 执行浏览器复制命令
-	    console.log("已复制,赶紧分享给朋友吧");
-	}else{
-	    console.log("不兼容");
-	}
-    }
-    // input自带的select()方法在苹果端无法进行选择，所以需要自己去写一个类似的方法
-    // 选择文本。createTextRange(setSelectionRange)是input方法
-    function selectText(textbox, startIndex, stopIndex) {
-	if(textbox.createTextRange) {//ie
-	    var range = textbox.createTextRange();
-	    range.collapse(true);
-	    range.moveStart('character', startIndex);//起始光标
-	    range.moveEnd('character', stopIndex - startIndex);//结束光标
-	    range.select();//不兼容苹果
-	}else{//firefox/chrome
-	    textbox.setSelectionRange(startIndex, stopIndex);
-	    textbox.focus();
-	}
-    }
-/*兼容性补充：
-    移动端：
-    安卓手机：微信（chrome）和几个手机浏览器都可以用。 
-    苹果手机：微信里面和sarafi浏览器里也都可以，  
-  PC端:sarafi版本必须在10.2以上，其他浏览器可以.
-    兼容性测试网站：https://www.caniuse.com/
- */
-</script>
- </body> 
 </html>
-
