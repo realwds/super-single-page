@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>新浪每日搞笑动图</title>
+  <style type="text/css">
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      background: #333;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      text-align: center;
+      border: 1px solid #d8d5d5;
+      margin: 18px 8px;
+      padding: 16px 0px;
+      border-radius: 10px;
+      background: #fff;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 16px;
+      text-align: left;
+      margin: 10px 20px 20px;
+      font-weight: 200;
+    }
+
+    h2 {
+      text-align: right;
+      font-size: 12px;
+      font-weight: 200;
+      margin: 9px 12px -7px 0;
+    }
+
+    @media screen and (min-width:440px) {
+      body {
+        width: 440px;
+        margin: 0 auto;
+      }
+    }
+
+    section {
+      position: fixed;
+      bottom: 30px;
+      right: 20px;
+    }
+
+    a {
+      background: #598263;
+      color: #fff;
+      width: 64px;
+      padding: 10px 20px;
+      margin-left: 10px;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    .page {
+      position: fixed;
+      right: 8px;
+      top: 8px;
+      font-size: 14px;
+      padding: 4px 8px;
+      color: red;
+      background: antiquewhite;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <span class="page"></span>
+    <ul></ul>
+    <section>
+      <a onclick="prePage()">上一页</a>
+      <a onclick="nextPage()">下一页</a>
+    </section>
+  </div>
+
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    var refresh = function (page) {
+      $.ajax({
+        type: 'GET',
+        url: 'https://interface.sina.cn/tech/gif/album.d.json?num=' + 20 + '&page=' + page + '&jsoncallback=jsonp1&_=1570606601560',
+        async: false,
+        dataType: "jsonp",
+        jsonp: "callback",
+        jsonpCallback: "jsonp1",
+        success: function (msg) {
+          $('ul').empty();
+          msg.data.forEach(function (currentValue, index, arr) {
+            $('ul').append('<li><h1>' + msg.data[index].name + '</h1><img src="http:' + msg.data[index].img_url + '"/><h2>' + msg.data[index].createtime + '</h2></li>')
+          })
+        }
+      })
+      $('.page').html('当前所在第' + page + '页');
+    }
+
+    refresh(1);
+    var page = 1;
+    var prePage = function () {
+      if (page == 1) {
+        alert('这里是首页哦');
+        refresh(page);
+      } else {
+        page--;
+        refresh(page);
+      }
+    }
+    var nextPage = function () {
+      page++;
+      refresh(page);
+    }
+
+
+  </script>
+
+</body>
+
+</html>
